@@ -1,0 +1,170 @@
+/* Default styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF4E7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#question-container {
+    margin-top: 50px;
+}
+
+#result-container {
+    margin-top: 60px;
+}
+
+#result-container h2 {
+    font-size: 40px;
+}
+
+#options {
+    margin-top: 20px;
+}
+
+.selected {
+    background-color: #268a08 !important;
+}
+
+button {
+    padding: 16px 32px;
+    margin: 10px;
+    background-color: #0d0e0d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #268a08;
+}
+
+#question {
+    font-size: 30px;
+}
+
+#result {
+    font-size: 36px;
+    padding: 10px;
+}
+
+#result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#result-container .result-box {
+    padding: 7px;
+    margin: 7px;
+
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#question-container .question-box {
+    padding: 20px;
+    margin: 7px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+#next-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#prev-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 1200px) {
+
+    /* Adjust styles for tablets and smaller screens */
+    #question-container {
+        margin-top: 30px;
+    }
+
+    #result-container {
+        margin-top: 40px;
+    }
+
+    #result-container h2 {
+        font-size: 32px;
+    }
+
+    #question {
+        font-size: 24px;
+    }
+
+    #result {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 425px) {
+
+    /* Adjust styles for mobile devices */
+    #question-container {
+        margin-top: 20px;
+    }
+
+    #result-container {
+        margin-top: 30px;
+    }
+
+    #result-container h2 {
+        font-size: 24px;
+    }
+
+    #question {
+        font-size: 20px;
+    }
+
+    #result {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    #next-btn,
+    #prev-btn {
+        position: static;
+        margin-top: 20px;
+    }
+}
