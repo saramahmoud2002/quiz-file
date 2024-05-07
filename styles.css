@@ -91,80 +91,8 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-#next-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
 #prev-btn {
     position: fixed;
     bottom: 20px;
     left: 20px;
-}
-
-/* Media Queries for Responsive Design */
-@media only screen and (max-width: 1200px) {
-
-    /* Adjust styles for tablets and smaller screens */
-    #question-container {
-        margin-top: 30px;
-    }
-
-    #result-container {
-        margin-top: 40px;
-    }
-
-    #result-container h2 {
-        font-size: 32px;
-    }
-
-    #question {
-        font-size: 24px;
-    }
-
-    #result {
-        font-size: 28px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 12px 24px;
-    }
-}
-
-@media only screen and (min-width: 300px) and (max-width: 425px) {
-
-    /* Adjust styles for mobile devices */
-    #question-container {
-        margin-top: 20px;
-    }
-
-    #result-container {
-        margin-top: 30px;
-    }
-
-    #result-container h2 {
-        font-size: 24px;
-    }
-
-    #question {
-        font-size: 20px;
-    }
-
-    #result {
-        font-size: 22px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
-
-    #next-btn,
-    #prev-btn {
-        position: static;
-        margin-top: 20px;
-    }
 }
