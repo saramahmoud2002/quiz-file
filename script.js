@@ -43,7 +43,8 @@ let answers = [];
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const resultElement = document.getElementById('result');
-const nextButton = document.getElementById('next-btn');
+const prevButton = document.getElementById('prev-btn');
+const choiceText = document.getElementById('choice-text');
 
 function displayQuestion() {
     const currentQArabic = questions[currentQuestion];
@@ -56,8 +57,6 @@ function displayQuestion() {
 
     optionsElement.appendChild(option1);
     optionsElement.appendChild(option2);
-
-    nextButton.style.display = 'none'; // Hide the Next button initially
 }
 
 function createOptionButton(text) {
@@ -69,8 +68,7 @@ function createOptionButton(text) {
         optionButtons.forEach(button => button.classList.remove('selected'));
         option.classList.add('selected');
         answers[currentQuestion] = text === "Yes" ? "likely" : "dislikely";
-        nextButton.disabled = false; // Enable the Next button after selecting an option
-        nextButton.style.display = 'block'; // Display the Next button after an option is selected
+        showNextQuestion(); // Call the function to show the next question directly
     });
     return option;
 }
@@ -79,7 +77,9 @@ function showNextQuestion() {
     currentQuestion++;
     if (currentQuestion < questions.length) {
         displayQuestion();
-        nextButton.disabled = true; // Disable the Next button until an option is selected
+        if (currentQuestion > 0) {
+            prevButton.style.display = 'block'; // Show the Previous button from the second question onwards
+        }
     } else {
         displayResult();
     }
@@ -113,7 +113,7 @@ function displayResult() {
 
     if (selectedMajors.length > 0) {
         resultElement.textContent = selectedMajors.join(" or ");
-       
+        choiceText.style.display = 'block'; // Display the choice text
         document.getElementById('question-container').style.display = 'none';
         document.getElementById('result-container').style.display = 'block';
     } else {
@@ -123,22 +123,14 @@ function displayResult() {
     }
 }
 
-
-
-
-
-nextButton.addEventListener('click', () => {
-    showNextQuestion();
-});
-const prevButton = document.getElementById('prev-btn');
-
 prevButton.addEventListener('click', () => {
     if (currentQuestion > 0) {
         currentQuestion--;
         displayQuestion();
-        nextButton.disabled = true; // Disable the Next button until an option is selected
+        if (currentQuestion === 0) {
+            prevButton.style.display = 'none'; // Hide the Previous button on the first question
+        }
     }
 });
-
 
 displayQuestion();
